@@ -1,0 +1,4 @@
+.idea
+linknet.pth
+__pycache__/
+env/
