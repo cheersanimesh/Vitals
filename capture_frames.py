@@ -27,7 +27,7 @@ class CaptureFrames():
         self.capture_frames(source)
 
     def capture_frames(self, source):
-
+        print(f"Capturing of frame starts")
         img_transform = transforms.Compose([
             transforms.Resize((256, 256)),
             transforms.ToTensor(),
@@ -43,10 +43,13 @@ class CaptureFrames():
         time_1 = time.time()
 
         while camera.isOpened():
-
+            if count%10 == 10:
+                print("While Loop start")
             (grabbed, orig) = camera.read()
             if not grabbed:
                 continue
+            # if grabbed == False:
+            #     break
 
             shape = orig.shape[0:2]
             frame = cv2.cvtColor(orig, cv2.COLOR_BGR2RGB)
@@ -69,8 +72,7 @@ class CaptureFrames():
             mask = mask > 0.8
             orig[mask == 0] = 0
             count+=1
-            if(count%10 ==0):
-                print(f"Frame Appended: {count}")
+            cv2.imshow("test",orig)
             self.video_frames.append(orig)
 
         self.terminate(camera)
