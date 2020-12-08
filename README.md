@@ -18,7 +18,3 @@ files are described below:
 - eulerian.py - Contains function for a temporal bandpass filter that uses a Fast-Fourier Transform
 - heartrate.py - Contains function to calculate heart rate from FFT results
 
-## How to run:
-To run the program, specify the path of the input video at "source" variable on line 12 of
-main.py. To alter the frequency range to be filtered, change the values assigned to freq_min and freq_max on lines 9
-and 10.
